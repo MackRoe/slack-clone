@@ -12,6 +12,11 @@ const typeDefs = gql`
 		posts: [Post!]!
 	}
 
+    type Channel {
+        name: String!
+        posts: [Post]
+    }
+
 	type Mutation {
 		addPost(message: String!): Post!
 	}
@@ -22,6 +27,11 @@ const typeDefs = gql`
 
 const data = [
 	{ message: 'hello world', date: new Date() }
+]
+const channels = [
+    { name: "Main",
+      posts: data
+    }
 ]
 
 const resolvers = {
