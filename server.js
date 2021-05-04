@@ -9,7 +9,7 @@ const typeDefs = gql`
 	}
 
 	type Query {
-		posts: [Post!]!
+		posts(channel: String!): [Post!]!
 	}
 
     type Channel {
@@ -18,11 +18,13 @@ const typeDefs = gql`
     }
 
 	type Mutation {
-		addPost(message: String!): Post!
+		addPost(channel: String!, message: String!): Post!
+        addChannel(name: String): Channel!
 	}
 
 	type Subscription {
 		newPost: Post!
+        newChannel: Channel!
 	}`
 
 const data = [
