@@ -8,10 +8,6 @@ const typeDefs = gql`
 		date: String!
 	}
 
-	type Query {
-		posts(channel: String!): [Post!]!
-	}
-
     type Channel {
         name: String!
         posts: [Post]
@@ -25,6 +21,11 @@ const typeDefs = gql`
 	type Subscription {
 		newPost: Post!
         newChannel: Channel!
+	}
+
+    type Query {
+		posts(channel: String!): [Post!]!
+        getChannels: [Channel]
 	}`
 
 const data = [
@@ -41,6 +42,9 @@ const resolvers = {
 		// Query types
         posts: () => {
 			return data
+        },
+        getChannels: () => {
+            return channels
         }
 	},
 	Mutation: {
