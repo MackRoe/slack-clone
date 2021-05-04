@@ -15,7 +15,7 @@ const typeDefs = gql`
 
 	type Mutation {
 		addPost(channel: String!, message: String!): Post!
-        addChannel(name: String): Channel!
+        addChannel(name: String!): [Channel]!
 	}
 
 	type Subscription {
@@ -54,7 +54,13 @@ const resolvers = {
 			data.push(post)
 			pubsub.publish('NEW_POST', { newPost: post }) // Publish!
 			return post
-		}
+		},
+        addChannel: (_, { name }) => {
+            const channel = { name }
+            channels.push(channel)
+            pubsub.publish('NEW_CHANNEL', { newChannel: channel })
+            return channels
+        }
 	},
 	Subscription: {
 		// Subscription types

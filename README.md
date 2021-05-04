@@ -12,7 +12,7 @@
 4. To run the app, enter: `npm start` and navigate to `localhost:4000/graphql` in your browser.
 
 ## The UI
-![The User Interface](UserInterface.png)
+![The User Interface](ApolloUI.png)
 
 Queries are added on the left and the data returned appears on the right. To send a query, click the run [>] button.
 
