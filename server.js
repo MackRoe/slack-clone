@@ -60,7 +60,10 @@ const resolvers = {
 		// Subscription types
         newPost: {
 			subscribe: () => pubsub.asyncIterator('NEW_POST')
-    		}
+        },
+        newChannel: {
+            subscribe: () => pubsub.asyncIterator('NEW_CHANNEL')
+        }
     	}
     }
 

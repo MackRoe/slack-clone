@@ -18,6 +18,21 @@ Queries are added on the left and the data returned appears on the right. To sen
 
 ## The Queries
 
+**__Subscriptions must be running in seperate tab__**
+
+`subscription NewPost {
+	newPost {
+		message
+		date
+	}
+}
+
+subscription NewChannel {
+  newChannel {
+    name
+  }
+}`
+
 ### Display a list of channels
 `{
   getChannels {
